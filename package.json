@@ -1,0 +1,19 @@
+{
+  "name": "parse-doc",
+  "version": "0.1.0",
+  "description": "",
+  "main": "parse.js",
+  "scripts": {
+    "release": "standard-version"
+  },
+  "author": "forsigner",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "decomment": "^0.8.6",
+    "lodash": "^4.17.4",
+    "mockjs": "^1.0.1-beta3"
+  },
+  "devDependencies": {
+    "standard-version": "^4.2.0"
+  }
+}

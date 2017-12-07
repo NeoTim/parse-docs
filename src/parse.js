@@ -19,8 +19,12 @@ module.exports = function(str) {
   };
   const regMatch = /```\s*(js|javascript)([^`]*?)```/gi;
   const regReplace = /(```)\s*(js|javascript)|```/gi;
+  const matchResult = str.match(regMatch);
+  if (!matchResult) {
+    return dataTpl;
+  }
 
-  const arr = str.match(regMatch).map(function(item) {
+  const arr = matchResult.map(function(item) {
     item = item.replace(regReplace, '');
     return item;
   });

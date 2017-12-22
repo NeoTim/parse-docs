@@ -5,6 +5,7 @@
   "main": "lib/parse.js",
   "scripts": {
     "compile": "babel src -d lib",
+    "demo": "npm run compile && node example/index.js",
     "release": "standard-version"
   },
   "author": "forsigner",

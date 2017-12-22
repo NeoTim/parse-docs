@@ -10,6 +10,7 @@ const handleData = require('./handle');
  */
 module.exports = function(str) {
   const dataTpl = {
+    title: 'Api title',
     request: {
     },
     response: {
@@ -28,6 +29,8 @@ module.exports = function(str) {
     item = item.replace(regReplace, '');
     return item;
   });
+
+  dataTpl.title = getTitle(str);
 
   arr.forEach(function(item) {
     let reqObj,
@@ -70,6 +73,24 @@ module.exports = function(str) {
 
   return dataTpl;
 };
+
+function getTitle(str) {
+  const arr = str.split('\n');
+  const find = arr.find(item => {
+    return item.indexOf('__Desc__') > -1;
+  });
+
+  if (find) {
+    const arr = find.split(':');
+    if (arr.length < 1) return;
+    return arr[1].replace(/^\s*/, '');
+  }
+  if (arr[2].length > 0) {
+    return arr[2];
+  }
+  return arr[1];
+
+}
 
 function getDaly(str) {
   const regDelay = /<delay=(.*)>/;
